@@ -1,12 +1,11 @@
 import Router from 'vue-router';
 export default function ({
   routes,
-  router = this,
+  router = null,
   rootName = '',
   notFound = {},
   to = {}
 }) {
-  console.log(router, this);
   const staticRoutes = [...router.options.routes];
   const resetRouter = () =>
     (router.matcher = new Router({

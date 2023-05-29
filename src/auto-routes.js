@@ -9,7 +9,6 @@ export default ({
   const routes = [];
   Object.keys(models).forEach((model) => {
     const { children, name: menuName, view = null, ...extend } = models[model];
-
     let modelChildren = [];
     const viewPath = ({
       customView = '',
