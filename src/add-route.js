@@ -6,7 +6,7 @@ export default function ({
   notFound = {},
   to = {}
 }) {
-  console.log(router);
+  console.log(router, this);
   const staticRoutes = [...router.options.routes];
   const resetRouter = () =>
     (router.matcher = new Router({
