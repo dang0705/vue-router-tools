@@ -7,13 +7,14 @@ export default function ({
   to = {}
 }) {
   const staticRoutes = [...router.options.routes];
-  const resetRouter = () =>
-    (router.matcher = new Router({
+  const root = staticRoutes.find(({ name }) => name === rootName);
+  const resetRouter = () => {
+    root.children = [];
+    router.matcher = new Router({
       mode: 'history',
       routes: staticRoutes
-    }).matcher);
-
-  const root = staticRoutes.find(({ name }) => name === rootName);
+    }).matcher;
+  };
 
   resetRouter();
   routes.forEach((route) => {
