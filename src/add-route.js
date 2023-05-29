@@ -25,7 +25,7 @@ export default function ({
     router.options.routes.push(notFound);
   }
   return {
-    to: router.replace(to),
+    replaceTo: router.replace(to),
     rootRoute: root,
     resetRouter
   };
