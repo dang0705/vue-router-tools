@@ -1,11 +1,12 @@
 import Router from 'vue-router';
-export default ({
+export default function ({
   routes,
   router = this,
   rootName = '',
   notFound = {},
   to = {}
-}) => {
+}) {
+  console.log(router);
   const staticRoutes = [...router.options.routes];
   const resetRouter = () =>
     (router.matcher = new Router({
@@ -28,4 +29,4 @@ export default ({
     to: router.replace(to),
     resetRouter
   };
-};
+}
