@@ -26,6 +26,7 @@ export default function ({
   }
   return {
     to: router.replace(to),
+    rootRoute: root,
     resetRouter
   };
 }
