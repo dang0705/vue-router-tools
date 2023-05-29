@@ -6,9 +6,9 @@ export default ({
   notFound = {},
   to = {}
 }) => {
-  const staticRoutes = [...this.options.routes];
+  const staticRoutes = [...router.options.routes];
   const resetRouter = () =>
-    (this.matcher = new Router({
+    (router.matcher = new Router({
       mode: 'history',
       routes: staticRoutes
     }).matcher);
@@ -22,7 +22,7 @@ export default ({
   });
   if (!router.getRoutes().some(({ name }) => name === 'not-found')) {
     router.addRoute(notFound);
-    this.options.routes.push(notFound);
+    router.options.routes.push(notFound);
   }
   return {
     to: router.replace(to),
