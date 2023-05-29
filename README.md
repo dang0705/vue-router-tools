@@ -1,8 +1,10 @@
-<h2>A toolset for Vue router, including dynamic routing, routing modularity, initialization routing, and more</h2>
+<h2>A toolset for Vue router, including dynamic routing, initialization routing, and more</h2>
 
 ## import format:
 
-    import foo from 'vue-router-tools/bar'
+```js
+import foo from 'vue-router-tools/bar';
+```
 
 ## Essentials:
 
@@ -80,45 +82,3 @@ export default async function (to, from, next) {
 | ----------- | --------------------------------------- | -------- |
 | replaceTo   | for dynamic route first time navigation | Function |
 | resetRouter | reset the dynamic routes                | Function |
-
-## advanced
-
-### 1. models-2-modules
-
-```js
-// router/before-each.js
-
-import organizeModules from 'vue-router-tools/organize-models';
-
-const { modelOptions, models } = organizeModules(await fetch('/get-modules'));
-```
-
-```js
-// How to create the modules
-[
-  {
-    model: 'course',
-    name: '课程',
-    includes: ['list'],
-    options: {
-      status: {
-        0: '未完成',
-        1: '进行中',
-        2: '已完成'
-      }
-    },
-    actions: {
-      read: 'read'
-    },
-    children: [
-      {
-        model: 'my-group-child',
-        name: '我的课程',
-        actions: {
-          enable: 'enable'
-        }
-      }
-    ]
-  }
-];
-```
