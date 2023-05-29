@@ -83,7 +83,7 @@ export default async function (to, from, next) {
 
 ## advanced
 
-### 1. organize-models
+### 1. models-2-modules
 
 ```js
 // router/before-each.js

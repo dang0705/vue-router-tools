@@ -2,12 +2,12 @@ import Router from 'vue-router';
 export default function ({
   routes,
   router = null,
-  rootName = '',
+  parentName = '',
   notFound = {},
   to = {}
 }) {
   const staticRoutes = [...router.options.routes];
-  const root = staticRoutes.find(({ name }) => name === rootName);
+  const root = staticRoutes.find(({ name }) => name === parentName);
   const resetRouter = () => {
     root.children = [];
     router.matcher = new Router({
@@ -18,7 +18,7 @@ export default function ({
 
   resetRouter();
   routes.forEach((route) => {
-    router.addRoute(rootName, route);
+    router.addRoute(parentName, route);
     root.children.push(route);
   });
   if (!router.getRoutes().some(({ name }) => name === 'not-found')) {
