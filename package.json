@@ -1,0 +1,47 @@
+{
+  "name": "vue-router-tools",
+  "version": "1.0.0",
+  "type": "module",
+  "description": "An enhanced toolset for vue router",
+  "scripts": {
+    "rollup:build": "rollup -c"
+  },
+  "files": [
+    "dist",
+    "src"
+  ],
+  "exports": {
+    "./add-route": {
+      "import": "./dist/add-route.js"
+    },
+    "./init-router": {
+      "import": "./dist/init-router.js"
+    },
+    "./auto-routes": {
+      "import": "./dist/auto-routes.js"
+    },
+    "./organize-models": {
+      "import": "./dist/organize-models.js"
+    }
+  },
+  "keywords": [
+    "vue-router-tools",
+    "vue-router-enhace",
+    "vue-router-utils",
+    "vue-add-route"
+  ],
+  "author": "JAY",
+  "license": "ISC",
+  "repository": {
+    "type": "git",
+    "url": "git@github.com:dang0705/vue-router-tools.git"
+  },
+  "devDependencies": {
+    "rollup": "^3",
+    "rollup-plugin-terser": "^7.0.2",
+    "vue": "^2",
+    "vue-router": "^3.6.5",
+    "@babel/core": "^7.20.2",
+    "@babel/preset-env": "^7.20.2"
+  }
+}
