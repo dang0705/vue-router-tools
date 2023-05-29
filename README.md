@@ -38,9 +38,9 @@ new Vue({
 // router/before-each.js
 
 ```
+const parentName = 'admin';
 let isAsyncRouteAdded = false;
 let resetRouter = null;
-let root = {};
 
 export default async function (to, from, next) {
   const { name,  path } = to;
@@ -51,7 +51,6 @@ export default async function (to, from, next) {
     next();
     if (isAsyncRouteAdded) {
       resetRouter && resetRouter();
-      root.children = [];
       isAsyncRouteAdded = false;
     }
   } else {
@@ -68,24 +67,22 @@ export default async function (to, from, next) {
           import('@router/configuration/not-found')
         ]);
 
-        const { modelOptions, models } = organizeModels( await $modelStore.getModels() );
-        $routesStore.$patch((state) => (state.routes = routes));
-
+        // replace your dynamic-routes request here
+        const routes = await fetch('/get-menu')
+         
+        // if use arrow function,then "this" is undifined here.
         const {
           replaceTo,
           resetRouter: reset,
-          rootRoute
         } = addRoute({
           to,
           routes,
           router: this,
-          rootName,
+          parentName,
           notFound
         });
         resetRouter = reset;
         isAsyncRouteAdded = true;
-        root = rootRoute;
-
         isStaticRoute ? next() : replaceTo();
       } else {
         next();
