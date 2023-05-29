@@ -17,11 +17,11 @@
     "./init-router": {
       "import": "./dist/init-router.js"
     },
-    "./auto-routes": {
-      "import": "./dist/auto-routes.js"
+    "./modules-2-routes": {
+      "import": "./dist/modules-2-routes.js"
     },
-    "./organize-models": {
-      "import": "./dist/organize-models.js"
+    "./models-2-modules": {
+      "import": "./dist/models-2-modules.js"
     }
   },
   "keywords": [

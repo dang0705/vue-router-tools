@@ -2,13 +2,13 @@ import { createRouteModel } from './utils/create-route-model.js';
 import c2k from './utils/camel-case-2-kebab-case.js';
 
 export default ({
-  models = {},
+  modules = {},
   pages = import.meta.glob('/src/views/admin/**/**/*.vue'),
-  modelViewRoot = '/src/views/admin'
+  modulesViewRoot = '/src/views/admin'
 }) => {
   const routes = [];
-  Object.keys(models).forEach((model) => {
-    const { children, name: menuName, view = null, ...extend } = models[model];
+  Object.keys(modules).forEach((model) => {
+    const { children, name: menuName, view = null, ...extend } = modules[model];
     let modelChildren = [];
     const viewPath = ({
       customView = '',
@@ -17,7 +17,7 @@ export default ({
       child
     } = {}) =>
       pages[
-        `${modelViewRoot}/${c2k(view || model)}/${
+        `${modulesViewRoot}/${c2k(view || model)}/${
           child
             ? `children/${customView || customModel}/${type}.vue`
             : `${type}.vue`
