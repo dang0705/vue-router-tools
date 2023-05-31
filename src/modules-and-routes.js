@@ -5,7 +5,8 @@ export default ({
   models,
   modelsExtend = {},
   pages = import.meta.glob('/src/views/admin/**/**/*.vue'),
-  modulesViewRoot = '/src/views/admin'
+  modulesViewRoot = '/src/views/admin',
+  debug
 }) => {
   const modules = {};
   const moduleOptions = {};

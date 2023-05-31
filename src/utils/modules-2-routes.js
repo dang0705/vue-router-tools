@@ -1,9 +1,10 @@
 import { createRouteModel } from './create-route-model.js';
 import c2k from './camel-case-2-kebab-case.js';
+import defaultPages from '../default-pages/index.js';
 
 export default ({
   modules = {},
-  pages = import.meta.glob('/src/views/admin/**/**/*.vue'),
+  pages = defaultPages,
   modulesViewRoot = '/src/views/admin'
 }) => {
   const routes = [];

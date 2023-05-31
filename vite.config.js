@@ -23,7 +23,12 @@ export default defineConfig({
       formats: ['es']
     },
     rollupOptions: {
-      external: ['vue', 'vue-router', '../vue/blank.vue'],
+      external: [
+        'vue',
+        'vue-router',
+        '../vue/blank.vue',
+        '../default-pages/index.js'
+      ],
       output: {
         dir: 'dist',
         name: 'vue-router-tools',
@@ -31,7 +36,13 @@ export default defineConfig({
           terser(),
           copy({
             hook: 'writeBundle',
-            targets: [{ src: './src/vue/**', dest: './dist/vue' }]
+            targets: [
+              { src: './src/vue/**', dest: './dist/vue' },
+              {
+                src: './src/default-pages/index.js',
+                dest: './dist/default-pages'
+              }
+            ]
           })
         ]
       }

@@ -3,7 +3,7 @@ export default function ({
   routes,
   router = null,
   parentName = '',
-  notFound = {},
+  notFound = null,
   to = {}
 }) {
   const staticRoutes = [...router.options.routes];
@@ -21,7 +21,10 @@ export default function ({
     router.addRoute(parentName, route);
     root.children.push(route);
   });
-  if (!router.getRoutes().some(({ name }) => name === 'not-found')) {
+  if (
+    notFound &&
+    !router.getRoutes().some(({ name }) => name === 'not-found')
+  ) {
     router.addRoute(notFound);
     router.options.routes.push(notFound);
   }
