@@ -18,11 +18,8 @@
     "./init-router": {
       "import": "./dist/init-router.js"
     },
-    "./modules-2-routes": {
-      "import": "./dist/modules-2-routes.js"
-    },
-    "./models-2-modules": {
-      "import": "./dist/models-2-modules.js"
+    "./modules-and-routes": {
+      "import": "./dist/modules-and-routes.js"
     }
   },
   "keywords": [
