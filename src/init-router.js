@@ -10,7 +10,10 @@ export default ({
 }) => {
   Vue.use(Router);
   const router = new Router({ mode, ...opts });
-  const callHooks = (hooks, arg) => hooks && hooks.call(router, ...arg);
+  const callHooks = (hooks, arg) => {
+    const next = arg[2]; //next
+    hooks ? hooks.call(router, ...arg) : next && next();
+  };
   router.beforeEach((...arg) => callHooks(beforeEach, arg));
   router.beforeResolve((...arg) => callHooks(beforeResolve, arg));
   router.afterEach((...arg) => callHooks(afterEach, arg));
