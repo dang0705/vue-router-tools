@@ -1,6 +1,6 @@
 {
   "name": "vue-router-tools",
-  "version": "1.0.12",
+  "version": "1.0.13",
   "type": "module",
   "description": "An enhanced toolset for vue router",
   "scripts": {
