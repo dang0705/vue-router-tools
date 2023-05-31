@@ -20,6 +20,9 @@
     },
     "./modules-and-routes": {
       "import": "./dist/modules-and-routes.js"
+    },
+    "./src/modules-and-routes": {
+      "import": "./src/modules-and-routes.js"
     }
   },
   "keywords": [
