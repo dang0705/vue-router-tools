@@ -5,8 +5,10 @@ import defaultPages from '../default-pages/index.js';
 export default ({
   modules = {},
   pages = defaultPages,
-  modulesViewRoot = '/src/views/admin'
+  modulesViewRoot = '/src/views/admin',
+  debug
 }) => {
+  debug && console.log(pages);
   const routes = [];
   Object.keys(modules).forEach((model) => {
     const { children, name: menuName, view = null, ...extend } = modules[model];
