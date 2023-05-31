@@ -1,5 +1,5 @@
-import { createRouteModel } from './utils/create-route-model.js';
-import c2k from './utils/camel-case-2-kebab-case.js';
+import { createRouteModel } from './create-route-model.js';
+import c2k from './camel-case-2-kebab-case.js';
 
 export default ({
   modules = {},

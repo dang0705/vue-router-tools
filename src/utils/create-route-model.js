@@ -36,7 +36,7 @@ export function createRouteModel({
   const moduleRoot = {
     path: `${isMinors ? '' : '/'}${model}`,
     name: `${model}.index`,
-    component: () => import('@router/layout/blank.vue'),
+    component: () => import('../vue/blank.vue'),
     redirect: { name: `${model}.list` }, // 默认显示主列表
     meta: {
       menuName

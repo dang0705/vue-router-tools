@@ -1,4 +1,5 @@
 import path from 'node:path';
+import vue from 'rollup-plugin-vue';
 import { fileURLToPath } from 'node:url';
 import { glob } from 'glob';
 import { terser } from 'rollup-plugin-terser';
@@ -6,7 +7,7 @@ import { terser } from 'rollup-plugin-terser';
 export default {
   input: Object.fromEntries(
     glob
-      .sync('src/*.js')
+      .sync('src/*.js', { ignore: 'utils/**' })
       .map((file) => [
         path.relative(
           'src',
@@ -21,5 +22,6 @@ export default {
     format: 'es',
     name: 'vue-router-tools',
     plugins: [terser()]
-  }
+  },
+  plugins: [vue()]
 };
