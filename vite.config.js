@@ -32,6 +32,10 @@ export default defineConfig({
       output: {
         dir: 'dist',
         name: 'vue-router-tools',
+        globals: {
+          vue: 'Vue',
+          'vue-router': 'Router'
+        },
         plugins: [
           terser(),
           copy({
