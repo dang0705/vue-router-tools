@@ -4,6 +4,7 @@
   "type": "module",
   "description": "An enhanced toolset for vue router",
   "scripts": {
+    "playground": "vite",
     "rollup:build": "rollup -c",
     "vite:build": "vite build"
   },
