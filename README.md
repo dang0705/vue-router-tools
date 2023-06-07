@@ -14,7 +14,7 @@ import foo from 'vue-router-tools/bar';
 
 #### 1.Injected router instances into the global routing guard, where 'this' can be used
 
-#### 2.Redefining the router and push methods to eliminate asynchronous error reporting by routing guards
+#### 2.Redefining the replace and push methods to eliminate asynchronous error reporting by routing guards
 
 #### 3.Delayed call to global routing guards, such as when using pinia in the guard, an error will be reported. This attribute can be used to fix this. If there is an infinite loop when resetting the dynamic route(use addRoute), please turn off this option
 
