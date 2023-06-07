@@ -1,14 +1,8 @@
 <h2>A toolset for Vue router, including dynamic routing, initialization routing, and more</h2>
 
-## import format:
-
-```js
-import foo from 'vue-router-tools/bar';
-```
-
 ## Essentials:
 
-### 1. init-router
+## 1. init-router
 
 ### Features:
 
@@ -47,7 +41,7 @@ new Vue({
 | lazyHooks  | delay call the route guard                                                                      | false                         |                                                                                     |
 | ...others  | [vue-router-example](https://github.com/vuejs/vue-router/blob/dev/examples/named-routes/app.js) |                               |                                                                                     |
 
-### 2. add-route
+## 2. add-route
 
 ```js
 // router/before-each.js
@@ -91,3 +85,36 @@ export default async function (to, from, next) {
 | ----------- | --------------------------------------- | -------- |
 | replaceTo   | for dynamic route first time navigation | Function |
 | resetRouter | reset the dynamic routes                | Function |
+
+## 3.bread-crumbs
+
+Auto generate dynamic bread crumbs based on vue router
+
+### Note:
+
+The route corresponding to each breadcrumb needs to configure the meta attribute, and configure the display text of the route in it
+
+### Usage:
+
+```js
+import Vue from 'vue';
+import Router from 'vue-router';
+import autoCrumbs from 'vue-router-crumbs'
+
+
+Vue.use(Router);
+const router = new Router({...})
+
+router.beforeEach((to,from,next)=>{
+    const { matched } = to;
+  /**
+   * @first       --   When there is a homepage, put it at the first of the breadcrumbs
+   * @metaNameKey --   Custom your meta name field, the 'name' is default
+   */
+  const crumbs = autoCrumbs({ matched, first: {text:'',to:''}, metaNameKey:''});
+  // The value obtained here should be saved in store (vuex or pinia).
+  console.log(crumbs);
+    // ...
+  next()
+})
+```

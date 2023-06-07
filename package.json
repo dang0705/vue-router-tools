@@ -21,6 +21,9 @@
     },
     "./modules-and-routes": {
       "import": "./dist/modules-and-routes.js"
+    },
+    "./bread-crumbs": {
+      "import": "./dist/bread-crumbs.js"
     }
   },
   "keywords": [
