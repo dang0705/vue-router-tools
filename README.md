@@ -10,6 +10,14 @@ import foo from 'vue-router-tools/bar';
 
 ### 1. init-router
 
+### Features:
+
+#### 1.Injected router instances into the global routing guard, where 'this' can be used
+
+#### 2.Redefining the router and push methods to eliminate asynchronous error reporting by routing guards
+
+#### 3.Delayed call to global routing guards, such as when using pinia in the guard, an error will be reported. This attribute can be used to fix this. If there is an infinite loop when resetting the dynamic route(use addRoute), please turn off this option
+
 ```js
 // router/index.js
 
@@ -36,6 +44,7 @@ new Vue({
 | ---------- | ----------------------------------------------------------------------------------------------- | ----------------------------- | ----------------------------------------------------------------------------------- |
 | beforeEach | navigation guards                                                                               | function (to,from,next) {...} | 'this' point to router instances in guard is available when not use arrow functions |
 | afterEach  | navigation guards                                                                               | function (to,from,next) {...} | ditto                                                                               |
+| lazyHooks  | delay call the route guard                                                                      | false                         |                                                                                     |
 | ...others  | [vue-router-example](https://github.com/vuejs/vue-router/blob/dev/examples/named-routes/app.js) |                               |                                                                                     |
 
 ### 2. add-route

@@ -16,7 +16,7 @@ export default ({
   afterEach = null,
   beforeResolve = null,
   mode = 'history',
-  usePinia = false,
+  lazyHooks = false,
   ...opts
 }) => {
   Vue.use(Router);
@@ -24,7 +24,7 @@ export default ({
   const useHooks = (hooks, arg) => {
     const next = arg[2]; //next
     hooks
-      ? usePinia
+      ? lazyHooks
         ? nextTick(() => hooks.call(router, ...arg))
         : hooks.call(router, ...arg)
       : next && next();

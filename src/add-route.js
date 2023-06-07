@@ -11,7 +11,7 @@ export default function ({
   const resetRouter = () => {
     root.children = [];
     router.matcher = new Router({
-      mode: 'history',
+      mode: router.mode,
       routes: staticRoutes
     }).matcher;
   };
