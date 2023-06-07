@@ -99,8 +99,7 @@ The route corresponding to each breadcrumb needs to configure the meta attribute
 ```js
 import Vue from 'vue';
 import Router from 'vue-router';
-import autoCrumbs from 'vue-router-crumbs'
-
+import autoCrumbs from 'vue-router-tools/bread-crumbs';
 
 Vue.use(Router);
 const router = new Router({...})
